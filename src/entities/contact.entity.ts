@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   ManyToOne,
 } from "typeorm";
-import Client from "./client.entitie";
+import Client from "./client.entity";
 
 @Entity("contacts")
 class Contact {
@@ -18,7 +18,7 @@ class Contact {
   @Column({ type: "varchar", length: 50, unique: true })
   email: string;
 
-  @Column({ type: "varchar", unique: true })
+  @Column({ type: "varchar", unique: true, length: 20 })
   phone: string;
 
   @CreateDateColumn({ type: "date" })

@@ -8,7 +8,7 @@ import {
   OneToMany,
 } from "typeorm";
 import { getRounds, hashSync } from "bcryptjs";
-import Contact from "./contact.entitie";
+import Contact from "./contact.entity";
 
 @Entity("clients")
 class Client {
@@ -24,7 +24,7 @@ class Client {
   @Column({ type: "varchar", length: 100 })
   password: string;
 
-  @Column({ type: "varchar", unique: true })
+  @Column({ type: "varchar", unique: true, length: 20 })
   phone: string;
 
   @CreateDateColumn({ type: "date" })
