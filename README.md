@@ -1,10 +1,25 @@
 # fullstack-project-backend
 
-## Introdução
+## Tabela de Conteúdos
+
+- [Visão Geral](#1-visão-geral)
+- [Introdução](#2-introdução)
+- [Rodando a APi Localmente](#3-rodadndo-api)
+
+## 1. Visão Geral
 
 Esta API faz parte de um projeto Full Stack, em que o objetivo é construir uma aplicação Full Stack onde seja possível realizar o cadastro de um cliente que poderá ter muitos contatos associados a ele.
 
-## Rodando a API localmente
+Tecnologias utilizadas:
+
+- [NodeJS](https://nodejs.org/en/)
+- [Express](https://expressjs.com/pt-br/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [TypeORM](https://typeorm.io/)
+- [Zod](https://zod.dev)
+
+## 3. Rodando a API localmente
 
 Faça o clone do repositório.
 

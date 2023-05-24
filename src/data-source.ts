@@ -1,11 +1,10 @@
 import { DataSource, DataSourceOptions } from "typeorm";
-import path from "node:path";
 import "dotenv/config";
+import Client from "./entities/client.entity";
+import Contact from "./entities/contact.entity";
+import { CreateTables1684947377498 } from "./migrations/1684947377498-createTables";
 
 const DataSourceConfig = (): DataSourceOptions => {
-  const entitiesPath = path.join(__dirname, "entities/**.{js,ts}");
-  const migrationsPath = path.join(__dirname, "migrations/**.{js,ts}");
-
   if (!process.env.DATABASE_URL) {
     throw new Error("Env var DATABASE_URL does not exists");
   }
@@ -15,8 +14,8 @@ const DataSourceConfig = (): DataSourceOptions => {
     url: process.env.DATABASE_URL,
     synchronize: false,
     logging: true,
-    entities: [entitiesPath],
-    migrations: [migrationsPath],
+    entities: [Client, Contact],
+    migrations: [CreateTables1684947377498],
   };
 };
 
