@@ -5,7 +5,7 @@ import { AppDataSource } from "../data-source";
 import { AppError } from "../errors/AppError";
 import Contact from "../entities/contact.entity";
 
-const verifyEmailExistsMiddleware = async (
+const verifyPhoneExistsMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -15,25 +15,25 @@ const verifyEmailExistsMiddleware = async (
   const contactRepository: Repository<Contact> =
     AppDataSource.getRepository(Contact);
 
-  if (req.body.email) {
+  if (req.body.phone) {
     const foundClient = await clientRepository.findOne({
       where: {
-        email: req.body.email,
+        phone: req.body.phone,
       },
     });
 
     const foundContact: Contact | null = await contactRepository.findOne({
       where: {
-        email: req.body.email,
+        phone: req.body.phone,
       },
     });
 
     if (foundClient || foundContact) {
-      throw new AppError("Email already exists", 409);
+      throw new AppError("Phone already exists", 409);
     }
   }
 
   return next();
 };
 
-export default verifyEmailExistsMiddleware;
+export default verifyPhoneExistsMiddleware;
